@@ -53,3 +53,7 @@ flask_project/
 - **Flask-SQLAlchemy** is used for ORM (Object-Relational Mapping) to handle database operations.
 - **psycopg2-binary** is used as the PostgreSQL database adapter for Python.
 - **Environment Configuration** allows switching between development and test databases using environment variables.
+
+## License
+
+[MIT](LICENSE.md) © [Gabriel Le Breton](https://gableroux.com)
