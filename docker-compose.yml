@@ -7,8 +7,6 @@ services:
       POSTGRES_DB: dev_db
     ports:
       - "5432:5432"
-    volumes:
-      - ./docker/flask/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
 
   web:
     build:
@@ -22,6 +20,19 @@ services:
     environment:
       FLASK_ENV: development
       DATABASE_URL: postgresql://user:password@db:5432/dev_db
+      DATABASE_TEST_URL: postgresql://user:password@db:5432/test_db
+    depends_on:
+      - db
+
+  test:
+    build:
+      context: .
+      dockerfile: docker/flask/Dockerfile
+    command: flask test
+    volumes:
+      - .:/usr/src/app
+    environment:
+      FLASK_ENV: testing
       DATABASE_TEST_URL: postgresql://user:password@db:5432/test_db
     depends_on:
       - db
