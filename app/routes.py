@@ -2,7 +2,6 @@ from flask import Blueprint, jsonify
 
 from .models import User
 
-# Utilisation de Blueprint pour mieux organiser les routes
 bp = Blueprint("main", __name__)
 
 

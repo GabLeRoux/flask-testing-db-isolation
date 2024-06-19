@@ -20,7 +20,7 @@ def create_app(config_name):
         logging.debug("Routes and models imported and database created")
         logging.debug(f"Database URI: {app.config['SQLALCHEMY_DATABASE_URI']}")
         logging.debug(f"Testing Mode: {app.config['TESTING']}")
-        # Log the available routes
+
         for rule in app.url_map.iter_rules():
             logging.debug(f"Rule: {rule}, Endpoint: {rule.endpoint}")
 
